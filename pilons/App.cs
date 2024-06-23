@@ -1,4 +1,5 @@
-﻿using Autodesk.Revit.UI;
+﻿using Autodesk.Revit.DB.Analysis;
+using Autodesk.Revit.UI;
 using System;
 using System.Collections.Generic;
 using System.Configuration.Assemblies;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace pilons
 {
@@ -24,8 +26,10 @@ namespace pilons
             //кнопка на панели
             string assemblyLocation = Assembly.GetExecutingAssembly().Location,
                    iconsDirectoryPath = Path.GetDirectoryName(assemblyLocation) + @"\icons\";
-            PushButtonData buttonData = new PushButtonData("btnSplitColumns", "Split Columns", assemblyLocation, "ColumnSplitter.BreakColumnsCommand");
-            panel.AddItem(buttonData);
+            panel.AddItem(new PushButtonData(nameof(BreakColumnsCommand), "Удаление пилонов", assemblyLocation, typeof(BreakColumnsCommand).FullName)
+            {
+                LargeImage = new BitmapImage(new Uri(iconsDirectoryPath + "chees.ico"))
+            });
 
             return Result.Succeeded;
 
