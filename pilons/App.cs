@@ -17,11 +17,11 @@ namespace pilons
         public Result OnStartup(UIControlledApplication application)
         {
             //вкладка
-            string tabName = "Вкладка-хуядка";
+            string tabName = "Вкладка";
             application.CreateRibbonTab(tabName);
 
             //панель на вкладке
-            RibbonPanel panel = application.CreateRibbonPanel(tabName, "ТИУ рулит");
+            RibbonPanel panel = application.CreateRibbonPanel(tabName, "Панель");
 
             //кнопка на панели
             string assemblyLocation = Assembly.GetExecutingAssembly().Location,
@@ -32,14 +32,11 @@ namespace pilons
             });
 
             return Result.Succeeded;
-
         }
 
         public Result OnShutdown(UIControlledApplication application)
         {
             return Result.Succeeded;
         }
-
-
     }
 }
