@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Autodesk.Revit.DB;
 
 namespace pilons
 {
-    internal class ColumnToBreak
+    public class ColumnToBreak
     {
+        public Element Column {get;}
+        public int PartsCount {get;}
+
+        public ColumnToBreak(Element column, int partsCount)
+        {
+            Column = column;
+            PartsCount = partsCount;
+        }
     }
 }
