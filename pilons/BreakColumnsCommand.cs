@@ -35,6 +35,7 @@ public class BreakColumnsCommand : IExternalCommand
         Parameter topLevel = column.get_Parameter(BuiltInParameter.FAMILY_TOP_LEVEL_PARAM);
         Parameter baseLevel = column.get_Parameter(BuiltInParameter.FAMILY_BASE_LEVEL_PARAM);
 
-        return topLevel.AsElementId().IntegerValue - baseLevel.AsElementId().IntegerValue;
+        return topLevel.AsElementId().IntegerValue - baseLevel.AsElementId().IntegerValue;   //вот тут ошибку выдаёт: System.NullReferenceException: "Ссылка на объект не указывает на экземпляр объекта."  topLevel было null.
+
     }
 }
