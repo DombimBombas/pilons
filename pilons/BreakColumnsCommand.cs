@@ -14,7 +14,8 @@ public class BreakColumnsCommand : IExternalCommand
         Document doc = uidoc.Document;
 
         var pylons = new FilteredElementCollector(doc)
-            .OfClass(typeof(FamilyInstance))
+            .OfCategory(BuiltInCategory.OST_StructuralColumns)
+            .WhereElementIsNotElementType()
             .ToList();
 
         List<ColumnToBreak> columnsToBreak = new List<ColumnToBreak>();
